@@ -3,11 +3,13 @@
 * [list_maker.py] - python code to make lists
 
 
+
 ### How to use
 ```sh
 $ F-measure_Images.exe input_list truth_list
 ```
 input_list shoud be list of your predictions and truth_list should be list of ground truth.
+
 
 
 ### Compiled EXE file
