@@ -8,7 +8,7 @@
 ```sh
 $ F-measure_Images.exe input_list truth_list
 ```
-input_list shoud be list of your predictions and truth_list should be list of ground truth.
+'input_list' shoud be list of your predictions and 'truth_list' should be list of ground truth.
 
 
 
