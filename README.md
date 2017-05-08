@@ -10,4 +10,4 @@ input_list shoud be list of your predictions and truth_list should be list of gr
 
 ## Compiled EXE file
 You can [download here](http://www.naver.com).
-
+(Visual Studio 2013, x64, release mode)
