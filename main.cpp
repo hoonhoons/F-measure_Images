@@ -2,7 +2,6 @@
 #include <string>
 #include <fstream>
 #include <iostream>
-#include <ctime>
 
 int main(int argc, char* argv[]) {
 	if (argc < 3) {
@@ -20,7 +19,6 @@ int main(int argc, char* argv[]) {
 	int count = 0;
 
 	int true_positive(0), true_negative(0), false_positive(0), false_negative(0);
-	clock_t time_start = clock();
 
 	while (!input_list.eof()) { // Assumption : len(input_list) == len(output_list)
 		count++;
@@ -59,7 +57,6 @@ int main(int argc, char* argv[]) {
 			}
 		}
 	}
-	clock_t time_end = clock();
 
 	double precision = (double)true_positive / (true_positive + false_positive);
 	double recall = (double)true_positive / (true_positive + false_negative);
@@ -68,7 +65,6 @@ int main(int argc, char* argv[]) {
 	std::cout << "Precision is " << precision << std::endl;
 	std::cout << "Recall is " << recall << std::endl;
 	std::cout << "F-measure is " << Fmeasure << std::endl;
-	std::cout << "Duration is " << time_end - time_start << "ms for " << count << "images\n";
 
 	input_list.close();
 	truth_list.close();
