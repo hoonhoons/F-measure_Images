@@ -6,7 +6,7 @@ input_base = "D:\\\\\\\\Documents\\\\project2_dataset\\\\images\\\\"
 output_base = "D:\\\\\\\\Documents\\\\project2_dataset\\\\results\\\\"
 truth_base = "D:\\\\\\\\Documents\\\\project2_dataset\\\\gt\\\\"
 
-for i in range(301):
+for i in range(1, 301):
     img = '%03d.jpg\n' % (i)
     input_list.write(input_base + img)
     output_list.write(output_base + img)
