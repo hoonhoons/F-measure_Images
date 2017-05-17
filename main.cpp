@@ -19,6 +19,7 @@ int main(int argc, char* argv[]) {
 	int count = 0;
 
 	int true_positive(0), true_negative(0), false_positive(0), false_negative(0);
+	double f_sum = 0.0;
 
 	while (!input_list.eof()) { // Assumption : len(input_list) == len(output_list)
 		int true_positive_in(0), true_negative_in(0), false_positive_in(0), false_negative_in(0);
@@ -57,11 +58,11 @@ int main(int argc, char* argv[]) {
 						false_positive_in++;
 				}
 			}
-
+			
 		}
 
-		double precision_in = (double)true_positive_in / (true_positive_in + false_positive_in);
-		double recall_in = (double)true_positive_in / (true_positive_in + false_negative_in);
+		double precision_in = (double)true_positive_in / (true_positive_in + false_positive_in + 0.000001);
+		double recall_in = (double)true_positive_in / (true_positive_in + false_negative_in + 0.000001);
 		double Fmeasure_in = 2 * precision_in * recall_in / (precision_in + recall_in);
 		std::cout << "Precision is " << precision_in << std::endl;
 		std::cout << "Recall is " << recall_in << std::endl;
@@ -71,14 +72,22 @@ int main(int argc, char* argv[]) {
 		false_negative += false_negative_in;
 		true_positive += true_positive_in;
 		true_negative += true_negative_in;
+
+		if (Fmeasure_in > 0)
+			f_sum += Fmeasure_in;
 	}
 
 	double precision = (double)true_positive / (true_positive + false_positive);
 	double recall = (double)true_positive / (true_positive + false_negative);
 	double Fmeasure = 2 * precision * recall / (precision + recall);
 
+
 	std::cout << "****************************************" << std::endl;
-	std::cout << "OVERALL";
+	std::cout << "Average F-measure is " << (double) f_sum / count << std::endl;
+
+
+	std::cout << "****************************************" << std::endl;
+	std::cout << "OVERALL\n";
 	std::cout << "Precision is " << precision << std::endl;
 	std::cout << "Recall is " << recall << std::endl;
 	std::cout << "F-measure is " << Fmeasure << std::endl;
